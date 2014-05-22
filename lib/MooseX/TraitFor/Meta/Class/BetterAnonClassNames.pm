@@ -63,7 +63,7 @@ around create_anon_class => sub {
 
     $opts{is_anon} = 1;
 
-    my $superclasses = $opts{superclasses} // [];
+    my $superclasses = $opts{superclasses} || [];
 
     # don't bother doing anything else if we don't have anything to add
     return $class->$orig(%opts)
