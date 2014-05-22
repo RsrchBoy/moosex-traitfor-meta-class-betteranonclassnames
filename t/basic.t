@@ -4,13 +4,24 @@ use warnings;
 use Test::More;
 use Test::Moose::More;
 
-use MooseX::Util::Meta::Class;
+use MooseX::TraitFor::Meta::Class::BetterAnonClassNames;
 
-{ package Zombie::Catcher;                              use Moose;       }
+{
+    package Zombie::Catcher;
+    use Moose;
+    use Moose::Util::MetaRole;
+
+    Moose::Util::MetaRole::apply_metaroles(
+        for             => __PACKAGE__,
+        class_metaroles => {
+            class => [ 'MooseX::TraitFor::Meta::Class::BetterAnonClassNames' ],
+        }, 
+    );
+}
 { package Zombie::Catcher::Tools::Machete;              use Moose::Role; }
 { package Zombie::Catcher::Tools::TracyChapmansFastCar; use Moose::Role; }
 
-my $catcher = MooseX::Util::Meta::Class->create_anon_class(
+my $catcher = Zombie::Catcher->meta->create_anon_class(
     superclasses => [ 'Zombie::Catcher' ],
     weaken => 0,
     roles => [ qw{
@@ -18,7 +29,7 @@ my $catcher = MooseX::Util::Meta::Class->create_anon_class(
     } ],
 );
 
-# created anon classname like: Zombie::Catcher::__ANON__::SERIAL::42
+# creates anon classname like: Zombie::Catcher::__ANON__::SERIAL::42
 note $catcher->name;
 
 validate_class $catcher->name => (
@@ -31,7 +42,7 @@ validate_class $catcher->name => (
 
 like $catcher->name, qr/^Zombie::Catcher::__ANON__::SERIAL::\d+$/, 'named as expected';
 
-my $fast_catcher = MooseX::Util::Meta::Class->create_anon_class(
+my $fast_catcher = $catcher->name->meta->create_anon_class(
     superclasses => [ $catcher->name ],
     weaken => 0,
     roles => [ qw{
