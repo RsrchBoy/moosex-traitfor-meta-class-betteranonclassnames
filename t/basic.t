@@ -15,7 +15,7 @@ use MooseX::TraitFor::Meta::Class::BetterAnonClassNames;
         for             => __PACKAGE__,
         class_metaroles => {
             class => [ 'MooseX::TraitFor::Meta::Class::BetterAnonClassNames' ],
-        }, 
+        },
     );
 }
 { package Zombie::Catcher::Tools::Machete;              use Moose::Role; }
