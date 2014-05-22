@@ -1,0 +1,57 @@
+NAME
+    MooseX::TraitFor::Meta::Class::BetterAnonClassNames - Metaclass trait to
+    *attempt* to demystify generated anonymous class names
+
+VERSION
+    This document describes version 0.002001 of
+    MooseX::TraitFor::Meta::Class::BetterAnonClassNames - released May 22,
+    2014 as part of MooseX-TraitFor-Meta-Class-BetterAnonClassNames.
+
+SUMMARY
+    You really want to be looking at "with_traits" in MooseX::Util.
+
+SEE ALSO
+    Please see those modules/websites for more information related to this
+    module.
+
+    *   MooseX::Util
+
+SOURCE
+    The development version is on github at
+    <http://https://github.com/RsrchBoy/moosex-traitfor-class-betteranonclas
+    snames> and may be cloned from
+    <git://https://github.com/RsrchBoy/moosex-traitfor-class-betteranonclass
+    names.git>
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    https://github.com/RsrchBoy/moosex-traitfor-class-betteranonclassnames/i
+    ssu es
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
+AUTHOR
+    Chris Weyl <cweyl@alumni.drew.edu>
+
+  I'm a material boy in a material world
+    Please note I do not expect to be gittip'ed or flattr'ed for this work,
+    rather it is simply a very pleasant surprise. I largely create and
+    release works like this because I need them or I find it enjoyable;
+    however, don't let that stop you if you feel like it ;)
+
+    Flattr this
+    <https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithu
+    b.com%2FRsrchBoy%2Fmoosex-traitfor-class-betteranonclassnames&title=Rsrc
+    hBoy's%20CPAN%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames&tags=%22
+    RsrchBoy's%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames%20in%20the%
+    20CPAN%22>, gittip me <https://www.gittip.com/RsrchBoy/>, or indulge my
+    Amazon Wishlist <http://bit.ly/rsrchboys-wishlist>... If you so desire.
+
+COPYRIGHT AND LICENSE
+    This software is Copyright (c) 2014 by Chris Weyl.
+
+    This is free software, licensed under:
+
+      The GNU Lesser General Public License, Version 2.1, February 1999
+
