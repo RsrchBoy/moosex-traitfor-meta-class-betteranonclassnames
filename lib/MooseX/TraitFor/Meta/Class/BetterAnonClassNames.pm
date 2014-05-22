@@ -16,15 +16,6 @@ has anon_package_prefix => (
 
 sub _build_anon_package_prefix { Moose::Meta::Class->_anon_package_prefix }
 
-#sub _anon_package_prefix { shift->name . '::Package::__ANON__::SERIAL::' }
-#has _anon_package_prefix => (
-    #is      => 'rwp',
-    #isa     => 'Str',
-    #clearer => 1,
-    #builder => sub { 'Reindeer' . shift->_anon_package_middle },
-#);
-
-#sub _anon_package_middle { '::Package::__ANON__::SERIAL::' }
 sub _anon_package_middle { '::__ANON__::SERIAL::' }
 
 # XXX around?
@@ -103,3 +94,13 @@ around create_anon_class => sub {
 };
 
 !!42;
+
+=head1 SUMMARY
+
+You really want to be looking at L<MooseX::Util/with_traits>.
+
+=head1 SEE ALSO
+
+L<MooseX::Util>
+
+=cut
