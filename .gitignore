@@ -6,7 +6,7 @@ _build*
 pm_to_blib*
 *.tar.gz
 .lwpcookies
-MooseX-TraitFor-Class-BetterAnonClassNames-*
+MooseX-TraitFor-Meta-Class-BetterAnonClassNames-*
 cover_db
 *.old
 inc

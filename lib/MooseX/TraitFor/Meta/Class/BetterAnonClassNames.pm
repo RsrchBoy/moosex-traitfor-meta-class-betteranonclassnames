@@ -1,4 +1,4 @@
-package MooseX::TraitFor::Class::BetterAnonClassNames;
+package MooseX::TraitFor::Meta::Class::BetterAnonClassNames;
 
 # ABSTRACT: Metaclass trait to *attempt* to demystify generated anonymous class names
 
