@@ -6,7 +6,26 @@ use Moose::Role;
 use namespace::autoclean;
 use autobox::Core;
 
+=attr is_anon
+
+Read-only, L<Boolean|Moose::Util::TypeConstraints/Default Type Constraints>,
+default: false.
+
+Provides an attribute in the place of L<Class::MOP::Package/is_anon>.
+
+=cut
+
 has is_anon => (is => 'ro', isa => 'Bool', default => 0);
+
+=attr anon_package_prefix
+
+Read-only, L<Str|Moose::Util::TypeConstraints/Default Type Constraints>
+
+=method _build_anon_package_prefix
+
+Builder method for the L</anon_package_prefix> attribute.
+
+=cut
 
 has anon_package_prefix => (
     is       => 'ro',
@@ -16,9 +35,26 @@ has anon_package_prefix => (
 
 sub _build_anon_package_prefix { Moose::Meta::Class->_anon_package_prefix }
 
+=method _anon_package_middle
+
+Defines what the "middle" of our anonymous package names is; provided for ease
+of overriding and hardcoded to:
+
+    ::__ANON__::SERIAL::
+
+=cut
+
 sub _anon_package_middle { '::__ANON__::SERIAL::' }
 
-# XXX around?
+=method _anon_package_prefix
+
+Returns the full prefix used to generate anonymous package names; if called
+on an instance then returns a sensible prefix (generally class name)
+stashed in L</anon_package_prefix>; otherwise returns the result of a call
+to L<Moose::Meta::Class/_anon_package_prefix>.
+
+=cut
+
 sub _anon_package_prefix {
     my $thing = shift @_;
 
@@ -32,6 +68,13 @@ sub _anon_package_prefix {
     ### $prefix
     return $prefix;
 }
+
+=method create
+
+Set the package name to a nicer anonymous class name if is_anon is passed
+and true and anon_package_prefix is passed and a non-empty string.
+
+=cut
 
 around create => sub {
     my ($orig, $self) = (shift, shift);
@@ -52,6 +95,13 @@ around create => sub {
     ### %opts
     return $self->$orig(%opts);
 };
+
+=method create_anon_class
+
+Create an anonymous class, as via L<Moose::Meta::Class/create_anon_class>,
+but with a kinder, gentler package name -- if possible.
+
+=cut
 
 around create_anon_class => sub {
     my ($orig, $class) = (shift, shift);
