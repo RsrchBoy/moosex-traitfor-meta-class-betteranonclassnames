@@ -17,7 +17,7 @@ Provides an attribute in the place of ["is\_anon" in Class::MOP::Package](https:
 
 ## anon\_package\_prefix
 
-Read-only, [Str](https://metacpan.org/pod/Moose::Util::TypeConstraints#Default-Type-Constraints)
+Read-only, [String](https://metacpan.org/pod/Moose::Util::TypeConstraints#Default-Type-Constraints)
 
 # METHODS
 

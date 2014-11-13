@@ -2,5 +2,8 @@ Revision history for MooseX-TraitFor-Meta-Class-BetterAnonClassNames
 
 {{$NEXT}}
 
+0.002002  2014-11-12 22:40:04 PST-0800
+	* Add documentation, some additional tests.
+
 0.002001  2014-05-22 12:12:37 PDT-0700
 	* initial release independent of MooseX-Util
