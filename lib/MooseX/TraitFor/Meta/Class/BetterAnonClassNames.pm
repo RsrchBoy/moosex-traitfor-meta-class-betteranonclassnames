@@ -11,7 +11,6 @@ has is_anon => (is => 'ro', isa => 'Bool', default => 0);
 has anon_package_prefix => (
     is       => 'ro',
     isa      => 'Str',
-    lazy     => 1,
     builder  => '_build_anon_package_prefix',
 );
 
