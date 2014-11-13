@@ -4,7 +4,50 @@ MooseX::TraitFor::Meta::Class::BetterAnonClassNames - Metaclass trait to \*attem
 
 # VERSION
 
-This document describes version 0.002001 of MooseX::TraitFor::Meta::Class::BetterAnonClassNames - released May 22, 2014 as part of MooseX-TraitFor-Meta-Class-BetterAnonClassNames.
+This document describes version 0.002002 of MooseX::TraitFor::Meta::Class::BetterAnonClassNames - released November 12, 2014 as part of MooseX-TraitFor-Meta-Class-BetterAnonClassNames.
+
+# ATTRIBUTES
+
+## is\_anon
+
+Read-only, [Boolean](https://metacpan.org/pod/Moose::Util::TypeConstraints#Default-Type-Constraints),
+default: false.
+
+Provides an attribute in the place of ["is\_anon" in Class::MOP::Package](https://metacpan.org/pod/Class::MOP::Package#is_anon).
+
+## anon\_package\_prefix
+
+Read-only, [Str](https://metacpan.org/pod/Moose::Util::TypeConstraints#Default-Type-Constraints)
+
+# METHODS
+
+## \_build\_anon\_package\_prefix
+
+Builder method for the ["anon\_package\_prefix"](#anon_package_prefix) attribute.
+
+## \_anon\_package\_middle
+
+Defines what the "middle" of our anonymous package names is; provided for ease
+of overriding and hardcoded to:
+
+    ::__ANON__::SERIAL::
+
+## \_anon\_package\_prefix
+
+Returns the full prefix used to generate anonymous package names; if called
+on an instance then returns a sensible prefix (generally class name)
+stashed in ["anon\_package\_prefix"](#anon_package_prefix); otherwise returns the result of a call
+to ["\_anon\_package\_prefix" in Moose::Meta::Class](https://metacpan.org/pod/Moose::Meta::Class#anon_package_prefix).
+
+## create
+
+Set the package name to a nicer anonymous class name if is\_anon is passed
+and true and anon\_package\_prefix is passed and a non-empty string.
+
+## create\_anon\_class
+
+Create an anonymous class, as via ["create\_anon\_class" in Moose::Meta::Class](https://metacpan.org/pod/Moose::Meta::Class#create_anon_class),
+but with a kinder, gentler package name -- if possible.
 
 # SUMMARY
 
@@ -18,14 +61,14 @@ Please see those modules/websites for more information related to this module.
 
 # SOURCE
 
-The development version is on github at [http://https://github.com/RsrchBoy/moosex-traitfor-class-betteranonclassnames](http://https://github.com/RsrchBoy/moosex-traitfor-class-betteranonclassnames)
-and may be cloned from [git://https://github.com/RsrchBoy/moosex-traitfor-class-betteranonclassnames.git](git://https://github.com/RsrchBoy/moosex-traitfor-class-betteranonclassnames.git)
+The development version is on github at [http://https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames](http://https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames)
+and may be cloned from [git://https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames.git](git://https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames.git)
 
 # BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/moosex-traitfor-class-betteranonclassnames/issu
-es
+https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames
+/issues
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired
@@ -40,7 +83,7 @@ Chris Weyl <cweyl@alumni.drew.edu>
 <div>
     <a href="https://www.gittip.com/RsrchBoy/"><img src="https://raw.githubusercontent.com/gittip/www.gittip.com/master/www/assets/%25version/logo.png" /></a>
     <a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
-    <a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fmoosex-traitfor-class-betteranonclassnames&title=RsrchBoy's%20CPAN%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames&tags=%22RsrchBoy's%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
+    <a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fmoosex-traitfor-meta-class-betteranonclassnames&title=RsrchBoy's%20CPAN%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames&tags=%22RsrchBoy's%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
 </div>
 
 Please note **I do not expect to be gittip'ed or flattr'ed for this work**,
@@ -48,7 +91,7 @@ rather **it is simply a very pleasant surprise**. I largely create and release
 works like this because I need them or I find it enjoyable; however, don't let
 that stop you if you feel like it ;)
 
-[Flattr this](https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fmoosex-traitfor-class-betteranonclassnames&title=RsrchBoy&#x27;s%20CPAN%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames&tags=%22RsrchBoy&#x27;s%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames%20in%20the%20CPAN%22),
+[Flattr this](https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fmoosex-traitfor-meta-class-betteranonclassnames&title=RsrchBoy&#x27;s%20CPAN%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames&tags=%22RsrchBoy&#x27;s%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames%20in%20the%20CPAN%22),
 [gittip me](https://www.gittip.com/RsrchBoy/), or indulge my
 [Amazon Wishlist](http://bit.ly/rsrchboys-wishlist)...  If you so desire.
 
