@@ -19,7 +19,7 @@ has is_anon => (is => 'ro', isa => 'Bool', default => 0);
 
 =attr anon_package_prefix
 
-Read-only, L<Str|Moose::Util::TypeConstraints/Default Type Constraints>
+Read-only, L<String|Moose::Util::TypeConstraints/Default Type Constraints>
 
 =method _build_anon_package_prefix
 
