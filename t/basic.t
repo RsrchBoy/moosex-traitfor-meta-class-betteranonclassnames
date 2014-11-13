@@ -42,6 +42,9 @@ validate_class $catcher->name => (
 
 like $catcher->name, qr/^Zombie::Catcher::__ANON__::SERIAL::\d+$/, 'named as expected';
 
+is $catcher->anon_package_prefix => 'Zombie::Catcher::__ANON__::SERIAL::',
+    'anon_package_prefix is as expected';
+
 my $fast_catcher = $catcher->name->meta->create_anon_class(
     superclasses => [ $catcher->name ],
     weaken => 0,
@@ -59,5 +62,8 @@ validate_class $fast_catcher->name => (
 );
 
 like $fast_catcher->name, qr/^Zombie::Catcher::__ANON__::SERIAL::\d+$/, 'named as expected';
+
+is $fast_catcher->anon_package_prefix => 'Zombie::Catcher::__ANON__::SERIAL::',
+    'anon_package_prefix is as expected';
 
 done_testing;
