@@ -6,6 +6,12 @@ use Moose::Role;
 use namespace::autoclean;
 use autobox::Core;
 
+use Moose::Exporter;
+
+Moose::Exporter->setup_import_methods(
+    trait_aliases => [ __PACKAGE__ ],
+);
+
 =attr is_anon
 
 Read-only, L<Boolean|Moose::Util::TypeConstraints/Default Type Constraints>,
