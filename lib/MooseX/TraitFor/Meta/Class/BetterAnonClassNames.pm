@@ -155,6 +155,12 @@ around create_anon_class => sub {
 
 You really want to be looking at L<MooseX::Util/with_traits>.
 
+=head1 TRAIT ALIASES
+
+=head2 BetterAnonClassNames
+
+Resolves out to the full name of this trait.
+
 =head1 SEE ALSO
 
 L<MooseX::Util>
