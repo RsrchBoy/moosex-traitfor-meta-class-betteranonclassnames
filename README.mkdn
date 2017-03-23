@@ -1,10 +1,14 @@
+[![Build Status](https://travis-ci.org/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames.svg?branch=master)](https://travis-ci.org/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/MooseX-TraitFor-Meta-Class-BetterAnonClassNames.png)](http://cpants.charsbar.org/dist/overview/MooseX-TraitFor-Meta-Class-BetterAnonClassNames)
+[![Coverage Status](https://coveralls.io/repos/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames/badge.svg?branch=master)](https://coveralls.io/r/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames?branch=master)
+
 # NAME
 
 MooseX::TraitFor::Meta::Class::BetterAnonClassNames - Metaclass trait to \*attempt\* to demystify generated anonymous class names
 
 # VERSION
 
-This document describes version 0.002002 of MooseX::TraitFor::Meta::Class::BetterAnonClassNames - released November 12, 2014 as part of MooseX-TraitFor-Meta-Class-BetterAnonClassNames.
+This document describes version 0.002003 of MooseX::TraitFor::Meta::Class::BetterAnonClassNames - released March 23, 2017 as part of MooseX-TraitFor-Meta-Class-BetterAnonClassNames.
 
 # ATTRIBUTES
 
@@ -53,22 +57,22 @@ but with a kinder, gentler package name -- if possible.
 
 You really want to be looking at ["with\_traits" in MooseX::Util](https://metacpan.org/pod/MooseX::Util#with_traits).
 
+# TRAIT ALIASES
+
+## BetterAnonClassNames
+
+Resolves out to the full name of this trait.
+
 # SEE ALSO
 
 Please see those modules/websites for more information related to this module.
 
 - [MooseX::Util](https://metacpan.org/pod/MooseX::Util)
 
-# SOURCE
-
-The development version is on github at [http://https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames](http://https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames)
-and may be cloned from [git://https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames.git](git://https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames.git)
-
 # BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames
-/issues
+[https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames/issues](https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames/issues)
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired
@@ -77,23 +81,6 @@ feature.
 # AUTHOR
 
 Chris Weyl <cweyl@alumni.drew.edu>
-
-## I'm a material boy in a material world
-
-<div>
-    <a href="https://www.gittip.com/RsrchBoy/"><img src="https://raw.githubusercontent.com/gittip/www.gittip.com/master/www/assets/%25version/logo.png" /></a>
-    <a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
-    <a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fmoosex-traitfor-meta-class-betteranonclassnames&title=RsrchBoy's%20CPAN%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames&tags=%22RsrchBoy's%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
-</div>
-
-Please note **I do not expect to be gittip'ed or flattr'ed for this work**,
-rather **it is simply a very pleasant surprise**. I largely create and release
-works like this because I need them or I find it enjoyable; however, don't let
-that stop you if you feel like it ;)
-
-[Flattr this](https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fmoosex-traitfor-meta-class-betteranonclassnames&title=RsrchBoy&#x27;s%20CPAN%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames&tags=%22RsrchBoy&#x27;s%20MooseX-TraitFor-Meta-Class-BetterAnonClassNames%20in%20the%20CPAN%22),
-[gittip me](https://www.gittip.com/RsrchBoy/), or indulge my
-[Amazon Wishlist](http://bit.ly/rsrchboys-wishlist)...  If you so desire.
 
 # COPYRIGHT AND LICENSE
 
