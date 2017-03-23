@@ -1,7 +1,5 @@
 Revision history for MooseX-TraitFor-Meta-Class-BetterAnonClassNames
 
-{{$NEXT}}
-
 0.002003  2017-03-23 12:49:22 CDT-0500
 	* Add a trait alias
 

@@ -1,4 +1,16 @@
+#
+# This file is part of MooseX-TraitFor-Meta-Class-BetterAnonClassNames
+#
+# This software is Copyright (c) 2014 by Chris Weyl.
+#
+# This is free software, licensed under:
+#
+#   The GNU Lesser General Public License, Version 2.1, February 1999
+#
 package MooseX::TraitFor::Meta::Class::BetterAnonClassNames;
+our $AUTHORITY = 'cpan:RSRCHBOY';
+# git description: 0.002002-6-gfc980d7
+$MooseX::TraitFor::Meta::Class::BetterAnonClassNames::VERSION = '0.002003';
 
 # ABSTRACT: Metaclass trait to *attempt* to demystify generated anonymous class names
 
@@ -12,26 +24,9 @@ Moose::Exporter->setup_import_methods(
     trait_aliases => [ __PACKAGE__ ],
 );
 
-=attr is_anon
-
-Read-only, L<Boolean|Moose::Util::TypeConstraints/Default Type Constraints>,
-default: false.
-
-Provides an attribute in the place of L<Class::MOP::Package/is_anon>.
-
-=cut
 
 has is_anon => (is => 'ro', isa => 'Bool', default => 0);
 
-=attr anon_package_prefix
-
-Read-only, L<String|Moose::Util::TypeConstraints/Default Type Constraints>
-
-=method _build_anon_package_prefix
-
-Builder method for the L</anon_package_prefix> attribute.
-
-=cut
 
 has anon_package_prefix => (
     is       => 'ro',
@@ -41,25 +36,9 @@ has anon_package_prefix => (
 
 sub _build_anon_package_prefix { Moose::Meta::Class->_anon_package_prefix }
 
-=method _anon_package_middle
-
-Defines what the "middle" of our anonymous package names is; provided for ease
-of overriding and hardcoded to:
-
-    ::__ANON__::SERIAL::
-
-=cut
 
 sub _anon_package_middle { '::__ANON__::SERIAL::' }
 
-=method _anon_package_prefix
-
-Returns the full prefix used to generate anonymous package names; if called
-on an instance then returns a sensible prefix (generally class name)
-stashed in L</anon_package_prefix>; otherwise returns the result of a call
-to L<Moose::Meta::Class/_anon_package_prefix>.
-
-=cut
 
 sub _anon_package_prefix {
     my $thing = shift @_;
@@ -75,12 +54,6 @@ sub _anon_package_prefix {
     return $prefix;
 }
 
-=method create
-
-Set the package name to a nicer anonymous class name if is_anon is passed
-and true and anon_package_prefix is passed and a non-empty string.
-
-=cut
 
 around create => sub {
     my ($orig, $self) = (shift, shift);
@@ -102,12 +75,6 @@ around create => sub {
     return $self->$orig(%opts);
 };
 
-=method create_anon_class
-
-Create an anonymous class, as via L<Moose::Meta::Class/create_anon_class>,
-but with a kinder, gentler package name -- if possible.
-
-=cut
 
 around create_anon_class => sub {
     my ($orig, $class) = (shift, shift);
@@ -151,6 +118,65 @@ around create_anon_class => sub {
 
 !!42;
 
+__END__
+
+=pod
+
+=encoding UTF-8
+
+=for :stopwords Chris Weyl
+
+=head1 NAME
+
+MooseX::TraitFor::Meta::Class::BetterAnonClassNames - Metaclass trait to *attempt* to demystify generated anonymous class names
+
+=head1 VERSION
+
+This document describes version 0.002003 of MooseX::TraitFor::Meta::Class::BetterAnonClassNames - released March 23, 2017 as part of MooseX-TraitFor-Meta-Class-BetterAnonClassNames.
+
+=head1 ATTRIBUTES
+
+=head2 is_anon
+
+Read-only, L<Boolean|Moose::Util::TypeConstraints/Default Type Constraints>,
+default: false.
+
+Provides an attribute in the place of L<Class::MOP::Package/is_anon>.
+
+=head2 anon_package_prefix
+
+Read-only, L<String|Moose::Util::TypeConstraints/Default Type Constraints>
+
+=head1 METHODS
+
+=head2 _build_anon_package_prefix
+
+Builder method for the L</anon_package_prefix> attribute.
+
+=head2 _anon_package_middle
+
+Defines what the "middle" of our anonymous package names is; provided for ease
+of overriding and hardcoded to:
+
+    ::__ANON__::SERIAL::
+
+=head2 _anon_package_prefix
+
+Returns the full prefix used to generate anonymous package names; if called
+on an instance then returns a sensible prefix (generally class name)
+stashed in L</anon_package_prefix>; otherwise returns the result of a call
+to L<Moose::Meta::Class/_anon_package_prefix>.
+
+=head2 create
+
+Set the package name to a nicer anonymous class name if is_anon is passed
+and true and anon_package_prefix is passed and a non-empty string.
+
+=head2 create_anon_class
+
+Create an anonymous class, as via L<Moose::Meta::Class/create_anon_class>,
+but with a kinder, gentler package name -- if possible.
+
 =head1 SUMMARY
 
 You really want to be looking at L<MooseX::Util/with_traits>.
@@ -163,6 +189,35 @@ Resolves out to the full name of this trait.
 
 =head1 SEE ALSO
 
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
 L<MooseX::Util>
+
+=back
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+L<https://github.com/RsrchBoy/moosex-traitfor-meta-class-betteranonclassnames/issues>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+=head1 AUTHOR
+
+Chris Weyl <cweyl@alumni.drew.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2014 by Chris Weyl.
+
+This is free software, licensed under:
+
+  The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
