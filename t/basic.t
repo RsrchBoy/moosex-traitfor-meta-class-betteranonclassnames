@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::Moose::More;
+use Test::Moose::More 0.047;
 
 use MooseX::TraitFor::Meta::Class::BetterAnonClassNames;
 
@@ -38,6 +38,12 @@ validate_class $catcher->name => (
     does      => [ qw{
         Zombie::Catcher::Tools::Machete
     }],
+    class_metaclasses => {
+        class => {
+            isa     => [ 'Moose::Meta::Class'                                  ],
+            does    => [ 'MooseX::TraitFor::Meta::Class::BetterAnonClassNames' ],
+        },
+    },
 );
 
 like $catcher->name, qr/^Zombie::Catcher::__ANON__::SERIAL::\d+$/, 'named as expected';
