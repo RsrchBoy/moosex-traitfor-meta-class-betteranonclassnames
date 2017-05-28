@@ -94,7 +94,7 @@ around create => sub {
         unless $opts{is_anon} && $opts{anon_package_prefix};
 
     ### old anon package name: $opts{package}
-    my $serial = $opts{package}->split(qr/::/)->[-1]; #at(-1); #tail(1);
+    my $serial = $opts{package}->split(qr/::/)->[-1];
     $opts{package} = $opts{anon_package_prefix} . $serial;
 
     ### new anon package name: $opts{package}
